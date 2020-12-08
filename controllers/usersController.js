@@ -43,33 +43,3 @@ exports.delete_user = async (req, res) => {
   }
 };
 
-
-//on get request to update user
-exports.show_update_user_form = (req, res) => {
-  id= req.params.id,
-  firstName= req.params.firstName,
-  lastName= req.params.lastName,
-
-  res.render("updateUser",{id, firstName, lastName});
-};
-
-
-
-// update user
-exports.update_user = async(req,res)=>{
-  try{
-    await UserModel.update({  firstName: req.body.firstName, lastName: req.body.lastName},{
-     
-      where: {
-        id: req.params.id,
-      },
-    
-      
-    });
-    res.redirect("/users");
-  } catch(error){
-    console.log("error",error)
-  }
-};
-
-

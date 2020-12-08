@@ -1,5 +1,4 @@
 var express = require("express");
-const { route } = require(".");
 var router = express.Router();
 const usersController = require("../controllers/usersController");
 
@@ -12,6 +11,4 @@ router.post("/add", usersController.add_user);
 
 router.get("/:id/delete", usersController.delete_user);
 
-router.get("/:id/:firstName/:lastName/update", usersController.show_update_user_form);
-router.post("/:id/update", usersController.update_user);
 module.exports = router;
